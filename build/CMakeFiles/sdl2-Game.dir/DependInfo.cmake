@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/g_ant/git/projects/sdl2-Game/Game.cpp" "CMakeFiles/sdl2-Game.dir/Game.cpp.o" "gcc" "CMakeFiles/sdl2-Game.dir/Game.cpp.o.d"
   "/home/g_ant/git/projects/sdl2-Game/main.cpp" "CMakeFiles/sdl2-Game.dir/main.cpp.o" "gcc" "CMakeFiles/sdl2-Game.dir/main.cpp.o.d"
   "" "sdl2-Game" "gcc" "CMakeFiles/sdl2-Game.dir/link.d"
   )

@@ -85,12 +85,12 @@ clean: CMakeFiles/sdl2-Game.dir/clean
 CMakeFiles/sdl2-Game.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl2-Game.dir/build.make CMakeFiles/sdl2-Game.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl2-Game.dir/build.make CMakeFiles/sdl2-Game.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles --progress-num=1,2 "Built target sdl2-Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles --progress-num=1,2,3 "Built target sdl2-Game"
 .PHONY : CMakeFiles/sdl2-Game.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sdl2-Game.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/g_ant/git/projects/sdl2-Game/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/g_ant/git/projects/sdl2-Game/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sdl2-Game.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/g_ant/git/projects/sdl2-Game/build/CMakeFiles 0
 .PHONY : CMakeFiles/sdl2-Game.dir/rule
@@ -102,7 +102,7 @@ sdl2-Game: CMakeFiles/sdl2-Game.dir/rule
 # codegen rule for target.
 CMakeFiles/sdl2-Game.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl2-Game.dir/build.make CMakeFiles/sdl2-Game.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles --progress-num=1,2 "Finished codegen for target sdl2-Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target sdl2-Game"
 .PHONY : CMakeFiles/sdl2-Game.dir/codegen
 
 # clean rule for target.

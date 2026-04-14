@@ -3,6 +3,7 @@ sdl2-Game: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
   CMakeFiles/sdl2-Game.dir/main.cpp.o \
+  CMakeFiles/sdl2-Game.dir/Game.cpp.o \
   /usr/lib/libSDL2main.a \
   /usr/lib/libSDL2-2.0.so.0.3200.66 \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
@@ -40,6 +41,8 @@ sdl2-Game: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
 CMakeFiles/sdl2-Game.dir/main.cpp.o:
+
+CMakeFiles/sdl2-Game.dir/Game.cpp.o:
 
 /usr/lib/libSDL2main.a:
 

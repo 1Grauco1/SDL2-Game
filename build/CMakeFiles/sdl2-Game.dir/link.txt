@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/sdl2-Game.dir/link.d "CMakeFiles/sdl2-Game.dir/main.cpp.o" -o sdl2-Game  /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.3200.66
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/sdl2-Game.dir/link.d "CMakeFiles/sdl2-Game.dir/main.cpp.o" "CMakeFiles/sdl2-Game.dir/Game.cpp.o" -o sdl2-Game  /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.3200.66
