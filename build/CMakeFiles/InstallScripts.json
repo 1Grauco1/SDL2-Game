@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/g_ant/git/projects/sdl2-Game/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

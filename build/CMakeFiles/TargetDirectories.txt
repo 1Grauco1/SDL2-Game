@@ -1,0 +1,3 @@
+/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles/sdl2-Game.dir
+/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles/edit_cache.dir
+/home/g_ant/git/projects/sdl2-Game/build/CMakeFiles/rebuild_cache.dir
