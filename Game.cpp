@@ -1,8 +1,11 @@
-#include "Game.hpp"
+#include "Game.h"
+#include "TextureManager.h"
 #include <stdlib.h>
 
 Game::Game() : isRunning(false), window(nullptr), renderer(nullptr) {}
 Game::~Game() {}
+
+SDL_Texture *player_tex;
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height,
                 bool fullscreen) {
@@ -34,6 +37,11 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height,
     } else {
         isRunning = false;
     }
+
+    player_tex =
+        TextureManager::loadTextute("assets/sprites/player.png", renderer);
+
+    lastTime = SDL_GetTicks();
 }
 
 void Game::handleEvents() {
@@ -50,13 +58,33 @@ void Game::handleEvents() {
     }
 }
 
-void Game::update() {}
+void Game::update() {
+    Uint32 currentTime = SDL_GetTicks();
+    float deltaTime = (currentTime - lastTime) / 1000.0f;
+    lastTime = currentTime;
+
+    const Uint8 *keystate = SDL_GetKeyboardState(NULL);
+
+    if (keystate[SDL_SCANCODE_D])
+        playerX += speed * deltaTime;
+
+    if (keystate[SDL_SCANCODE_A])
+        playerX -= speed * deltaTime;
+
+    if (keystate[SDL_SCANCODE_W])
+        playerY -= speed * deltaTime;
+
+    if (keystate[SDL_SCANCODE_S])
+        playerY += speed * deltaTime;
+}
 
 void Game::render() {
     SDL_SetRenderDrawColor(renderer, 255, 165, 0, 255); // Orange
     SDL_RenderClear(renderer);
 
-    // stuff to render
+    SDL_Rect dst = {(int)playerX, (int)playerY, 64, 64};
+
+    SDL_RenderCopy(renderer, player_tex, NULL, &dst);
 
     SDL_RenderPresent(renderer);
 }
