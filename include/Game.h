@@ -3,8 +3,10 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <iostream>
 
 #include "GameObject.h"
+#include "Map.h"
 #include "Renderer.h"
 #include "Window.h"
 
@@ -29,6 +31,7 @@ class Game {
 
     SDL_Window *window;
     GameObject *player;
+    Map *map;
 };
 
 #endif

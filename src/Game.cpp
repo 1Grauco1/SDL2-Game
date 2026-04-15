@@ -24,7 +24,7 @@ void Game::init() {
 
     player = new GameObject("assets/sprites/player.png", rendererManager.get(),
                             0, 0);
-
+    map = new Map(rendererManager.get());
     isRunning = true;
 }
 
@@ -42,6 +42,7 @@ void Game::update() { player->update(); }
 
 void Game::render() {
     rendererManager.clear();
+    map->drawMap();
     player->render();
     rendererManager.present();
 }

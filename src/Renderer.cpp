@@ -16,8 +16,6 @@ SDL_Renderer *Renderer::create(SDL_Window *window) {
         return nullptr;
     }
 
-    SDL_SetRenderDrawColor(renderer, 255, 165, 0, 255);
-
     return renderer;
 }
 
