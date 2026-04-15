@@ -5,19 +5,16 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
+#include "GameObject.h"
+#include "Renderer.h"
+#include "Window.h"
+
 class Game {
   public:
     Game();
     ~Game();
 
-    float playerX = 100.0f;
-    float playerY = 100.0f;
-    float speed = 200.0f; // pixels per second
-    Uint32 lastTime = 0;
-
-    void init(const char *title, int xpos, int ypos, int width, int height,
-              bool fullscreen);
-
+    void init();
     void handleEvents();
     void update();
     void render();
@@ -27,8 +24,12 @@ class Game {
 
   private:
     bool isRunning;
+
+    Window windowManager;
+    Renderer rendererManager;
+
     SDL_Window *window;
-    SDL_Renderer *renderer;
+    GameObject *player;
 };
 
 #endif
