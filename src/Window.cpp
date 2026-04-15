@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <cstdlib>
 #include <iostream>
 
 Window::Window()
