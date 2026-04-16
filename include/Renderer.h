@@ -13,7 +13,7 @@ class Renderer {
     void clear();
     void present();
 
-    SDL_Renderer *get();
+    SDL_Renderer *get() { return renderer; }
 
   private:
     SDL_Renderer *renderer;

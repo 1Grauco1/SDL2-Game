@@ -1,3 +1,6 @@
+#ifndef Map_hpp
+#define Map_hpp
+
 #include <SDL2/SDL.h>
 #include <array>
 
@@ -14,15 +17,11 @@ class Map {
     static constexpr int COLS = 25;
     static constexpr int TILE_SIZE = 32;
 
-    using MapGrid = std::array<std::array<int, COLS>, ROWS>;
-
     SDL_Renderer *renderer;
-
-    SDL_Texture *bg;
-    SDL_Texture *wall;
-    SDL_Texture *door;
-
+    SDL_Texture *bg, *wall, *door;
     SDL_Rect srcRect, destRect;
 
-    MapGrid map;
+    std::array<std::array<int, COLS>, ROWS> mapGrid;
 };
+
+#endif

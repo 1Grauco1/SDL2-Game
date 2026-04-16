@@ -1,4 +1,5 @@
 #include "Window.h"
+#include <cstdlib>
 #include <iostream>
 
 Window::Window()
@@ -6,11 +7,15 @@ Window::Window()
       ypos(SDL_WINDOWPOS_CENTERED), width(800), height(600), fullscreen(false),
       window(nullptr) {}
 
-Window::~Window() {}
+Window::~Window() {
+    if (window) {
+        SDL_DestroyWindow(window);
+    }
+}
 
 SDL_Window *Window::create() {
 #ifdef __linux__
-    setenv("SDL_VIDEODRIVER", "wayland", 1);
+    setenv("SDL_VIDEODRIVER", "wayland", 0);
 #endif
 
     int flags = SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE;
@@ -21,7 +26,7 @@ SDL_Window *Window::create() {
     window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
 
     if (!window) {
-        std::cout << "window creation failed: " << SDL_GetError() << std::endl;
+        std::cerr << "Window creation failed: " << SDL_GetError() << std::endl;
         return nullptr;
     }
 

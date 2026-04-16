@@ -1,6 +1,7 @@
 #include "Game.h"
+#include "Components.h"
 
-Game::Game() : isRunning(false), window(nullptr), player(nullptr) {}
+Game::Game() : isRunning(false), window(nullptr), renderer(nullptr) {}
 
 Game::~Game() {}
 
@@ -11,46 +12,53 @@ void Game::init() {
     }
 
     if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
-        std::cout << "IMG init failed: " << IMG_GetError() << std::endl;
+        std::cout << "IMG init failed: " << SDL_GetError() << std::endl;
         return;
     }
 
     window = windowManager.create();
-    if (!window)
-        return;
+    renderer = rendererManager.create(window);
 
-    if (!rendererManager.create(window))
-        return;
+    entityManager = std::make_unique<Manager>();
+    map = std::make_unique<Map>(renderer);
 
-    player = new GameObject("assets/sprites/player.png", rendererManager.get(),
-                            0, 0);
-    map = new Map(rendererManager.get());
+    auto &player(entityManager->addEntity());
+
+    player.addComponent<PositionComponent>(100, 100);
+    player.addComponent<SpriteComponent>("assets/sprites/player.png", renderer);
+
     isRunning = true;
 }
 
 void Game::handleEvents() {
     SDL_Event event;
-
     while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
+        if (event.type == SDL_QUIT)
             isRunning = false;
-        }
     }
 }
 
-void Game::update() { player->update(); }
+void Game::update() {
+    entityManager->refresh();
+    entityManager->update();
+}
 
 void Game::render() {
     rendererManager.clear();
-    map->drawMap();
-    player->render();
+
+    if (map)
+        map->drawMap();
+    if (entityManager)
+        entityManager->draw();
+
     rendererManager.present();
 }
 
 void Game::clean() {
-    delete player;
+    map.reset();
+    entityManager.reset();
 
-    SDL_DestroyRenderer(rendererManager.get());
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 
     IMG_Quit();

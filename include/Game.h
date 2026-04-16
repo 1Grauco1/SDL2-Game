@@ -4,8 +4,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <memory>
 
-#include "GameObject.h"
+#include "ECS.h"
 #include "Map.h"
 #include "Renderer.h"
 #include "Window.h"
@@ -21,7 +22,7 @@ class Game {
     void render();
     void clean();
 
-    bool running() { return isRunning; }
+    bool running() const { return isRunning; }
 
   private:
     bool isRunning;
@@ -30,8 +31,10 @@ class Game {
     Renderer rendererManager;
 
     SDL_Window *window;
-    GameObject *player;
-    Map *map;
+    SDL_Renderer *renderer;
+
+    std::unique_ptr<Manager> entityManager;
+    std::unique_ptr<Map> map;
 };
 
 #endif
